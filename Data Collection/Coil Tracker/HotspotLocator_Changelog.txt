@@ -1,0 +1,40 @@
+Changelog:
+
+26/11/2015
+OMEGADF- change classname to coil_calibration
+Include load_logging method from PolarisDragonfly
+unbias_ft becomes create_storage
+setup_dragonfly uses mm_ip instead of server
+Add user_start_calibrate method
+rezero method renamed vector
+vector outputs mean of orientations and positions for coil and calibration plate
+vector prints calculated vector
+vector and coil_ori become objects
+process_message recieves POLARIS_POSITION
+process_message creates positions and orientation arrays
+process_message removes sample number from array
+create_storage is called from User_start_calibrate
+Replaces load_config method with PolarisDragonfly corresponding method
+Added config 'main' information to load_config... Do we need a n_tool variable? Does the polaris output a list of tools is can currently see?
+Log file saves to coil_calibration log file
+setup_polaris_interface not called as method currently
+setup_dragonfly may need subscriptions added for Polaris_Position?
+Removed UR5 movement messages and commands
+
+27/11/2015
+Added a calculation in process_message to find the hospot position for each sample Probably doesn't work curently
+Changed vector to make_calibration_vector
+Now subscribing to POLARIS_POSITION
+Reorganized to improve readability
+Renaming of some variables to improve readability... ongoing
+
+30/11/2015
+Added ntools data member
+Simplified calculations loops in process_message
+
+
+
+What needs changing in process_message after #calculating outputs?
+What adjustments need to be made to get_ft_vals_from_DAQ_DATA_buffer?
+What is __name__ == "__main__" doing in this instance, does anything need changing?
+Do we need a seperate function to do calculation or should this sit within process message to occur if unbias = False
